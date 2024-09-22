@@ -1,0 +1,24 @@
+{
+  "name": "nlp-test-1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "nodemon": "nodemon main.js",
+    "prisma:studio": "npx prisma studio",
+    "prisma:migrate": "npx prisma migrate dev --name add_response_table"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@nlpjs/core": "^4.26.1",
+    "@nlpjs/lang-tr": "^4.26.1",
+    "@prisma/client": "^5.19.1",
+    "node-nlp": "^4.27.0",
+    "sentiment": "^5.0.2"
+  },
+  "devDependencies": {
+    "prisma": "^5.19.1"
+  }
+}

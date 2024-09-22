@@ -1,0 +1,67 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model NlpResult {
+  id                Int                 @id @default(autoincrement())
+  input             String
+  intent            String
+  confidence        Float
+  language          String
+  response          String
+  sentiment         Float?
+  entities          String?
+  source            String?
+  userId            String?
+  processingTime    Float?
+  createdAt         DateTime            @default(now())
+  FeatureExtraction FeatureExtraction[]
+}
+
+model TrainingData {
+  id        Int      @id @default(autoincrement())
+  language  String
+  intent    String
+  text      String
+  source    String?
+  createdAt DateTime @default(now())
+}
+
+model Keyword {
+  id        Int      @id @default(autoincrement())
+  word      String
+  intent    String
+  language  String
+  createdAt DateTime @default(now())
+}
+
+model Response {
+  id        Int      @id @default(autoincrement())
+  language  String
+  intent    String
+  text      String
+  createdAt DateTime @default(now())
+}
+
+model UserInteraction {
+  id            Int      @id @default(autoincrement())
+  userId        String
+  inputText     String
+  outputText    String
+  userSentiment String?
+  createdAt     DateTime @default(now())
+}
+
+model FeatureExtraction {
+  id        Int       @id @default(autoincrement())
+  resultId  Int
+  feature   String
+  value     String
+  createdAt DateTime  @default(now())
+  NlpResult NlpResult @relation(fields: [resultId], references: [id])
+}

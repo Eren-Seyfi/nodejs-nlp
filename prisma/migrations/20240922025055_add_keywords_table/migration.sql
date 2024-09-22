@@ -1,0 +1,8 @@
+-- CreateTable
+CREATE TABLE "Keyword" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "word" TEXT NOT NULL,
+    "intent" TEXT NOT NULL,
+    "language" TEXT NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

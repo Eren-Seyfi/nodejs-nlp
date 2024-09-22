@@ -1,0 +1,8 @@
+-- CreateTable
+CREATE TABLE "TrainingData" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "language" TEXT NOT NULL,
+    "intent" TEXT NOT NULL,
+    "text" TEXT NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
